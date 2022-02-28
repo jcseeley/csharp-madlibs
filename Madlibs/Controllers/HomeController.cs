@@ -7,10 +7,35 @@ namespace Madlibs.Controllers
   {
 
     [Route("/")]
-    public ActionResult Form() { return View(); }
+      public ActionResult Home() { return View(); }
 
-    [Route("/result")]
+
+    [Route("/form")]
+      public ActionResult Form() { return View(); }
+
+
+    [Route("/form-two")]
+      public ActionResult FormTwo() { return View(); }
+
+
+    [Route("/result-one")]
     public ActionResult Madlib(string inputOne, string inputTwo, string inputThree, string inputFour, string inputFive, string inputSix, string inputSeven, string inputEight, string inputNine)
+    {
+      UserInput myInput = new UserInput();
+      myInput.InputOne = inputOne;
+      myInput.InputTwo = inputTwo;
+      myInput.InputThree = inputThree;
+      myInput.InputFour = inputFour;
+      myInput.InputFive = inputFive;
+      myInput.InputSix = inputSix;
+      myInput.InputSeven = inputSeven;
+      myInput.InputEight = inputEight;
+      myInput.InputNine = inputNine;
+      return View(myInput);
+    }
+
+    [Route("/result-two")]
+    public ActionResult MadLibTwo(string inputOne, string inputTwo, string inputThree, string inputFour, string inputFive, string inputSix, string inputSeven, string inputEight, string inputNine)
     {
       UserInput myInput = new UserInput();
       myInput.InputOne = inputOne;
